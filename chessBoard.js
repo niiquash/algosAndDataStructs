@@ -12,7 +12,7 @@ B W
 
 function chessBoard(n) {
     const colors = ["W", "B"];
-    let current = colors[0];
+    let current;
     let board = [];
     let rows;
     for (let i = 0; i < n; i++) {
@@ -27,9 +27,15 @@ function chessBoard(n) {
             }
         }
         board.push(rows);
+        if (n % 2 == 0) {
+            if (current == colors[0]) {
+                current = colors[1];
+            } else {
+                current = colors[0];
+            }
+        }
     }
     return board;
 }
-
 
 console.log(chessBoard(2))
